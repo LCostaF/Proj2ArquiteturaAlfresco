@@ -220,18 +220,47 @@ Como protocolos de acesso ao repositório de conteúdo, o Alfresco atualmente su
 
 A arquitetura de interface de usuário consiste em vários clientes *web* e na *Application Development Framework* (ADF) da Alfresco, sendo os clientes *web* gerenciados por opções como Alfresco Share e Digital Workspace, e a ADF, construída com o framework Angular da linguagem JavaScript, funcionando como uma biblioteca de componentes *web* da Alfresco, podendo ser usada para gerenciamento de conteúdo e processo *web*.
 
+Alguns dos componentes *web* que podem ser integrados são:
+
+- Hierarquia de pastas *Breadcrumbs*;
+- Lista de documentos;
+- Mecanismo de busca;
+- Rótulos;
+- Envio de arquivos;
+- Visualização de prévias;
+- *Webscripts*, como por exemplo por chamadas REST.
+
+Os componentes ADF não se comunicam diretamente com os serviços backend Alfresco, existindo algumas camadas entre eles. Os componentes ADF se comunicam com os serviços ADF, que por sua vez trocam mensagens com a API JavaScript da Alfresco, que faz chamadas aos serviços backend com suas respectivas APIs. Os serviços ADF e a API JavaScript também podem ser utilizados diretamente caso não haja um componente disponível para uma determinada tarefa.
+
+A imagem a seguir ilustra o processo de comunicação descrito.
+
+<div align="center">
+
+![image_info](./Assets/AlfrescoAdf.png)
+
+Comunicação desde os componentes até os serviços backend
+
+</div>
+
+As páginas da interface de usuário são baseadas na aplicação Alfresco Share, que executa na plataforma Java, e geralmente é implantada com o uso do Apache Tomcat. Sua estrutura é baseada em um menu principal que leva às páginas, sendo semelhante ao padrão de páginas *web* de demais aplicações. Seu diferencial é o tipo de página *dashboard*, que pode ser configurada pelo usuário final a fim de adicionar, remover e organizar elementos na página.
+
+As páginas, scripts e elementos dessas dashboards são implementados com uso do framework Surf, originalmente desenvolvido pela própria Alfresco, que fornece a modularização de uma página HTML ao segmentá-la em diversos componentes reutilizáveis. O framework Surf é construído sobre o Spring MVC.
+
 ### 3.3. APIs
 
 Para acessar e extender serviços fora dos centrais oferecidos pelos sistemas Alfresco, os serviços de conteúdo possui dois tipos de APIs, cada uma destinada para um tipo específico de cliente. Essas categorias são as APIs remotas e as APIs embutidas.
 
-#### 3.3.1. APIs remotas
-
 A principal API remota é a API REST Alfresco, que deve ser o primeiro ponto de interação quando se deseja utilizar um repositório Alfresco remotamente. Para o caso de portabilidade, é possível utilizar APIs REST CMIS.
 
-#### 3.3.2. APIs embutidas
+Baseada em padrões HTTP, a API facilita a integração com demais aplicações ao permitir que desenvolvedores interajam com o Alfresco para executar diversas operações, como operações CRUD.
 
-As APIs embutidas tradicionalmente tem sido usadas para definir customizações que executam na mesma máquina virtual Java que o repositório Alfresco.
+Já as APIs embutidas tradicionalmente tem sido usadas para definir customizações que executam na mesma máquina virtual Java que o repositório Alfresco. Algumas das principais são:
 
+- **Node Service**, uma API para gerenciamento e manipulação de nós;
+- **Content Service**, que provê funções de configuração, acesso e transformação de conteúdo;
+- **Search Service**, que encapsula as buscas para diversos mecanismos, reconhecendo várias linguagens de consulta;
+- **Person Service**, uma API para gerenciamento de usuários e grupos;
+- **Workflow Service**, usada para interagir com workflows dentro do Alfresco, sendo possível gerenciar tarefas e acompanhar processos.
 
 ## 4. Análise Crítica e Sugestões de Melhoria
 
