@@ -236,7 +236,7 @@ A imagem a seguir ilustra o processo de comunicação descrito.
 
 <div align="center">
 
-![image_info](./Assets/AlfrescoAdf.png)
+![image_info](./Assets/AlfrescoADF.png)
 
 Comunicação desde os componentes até os serviços backend
 
