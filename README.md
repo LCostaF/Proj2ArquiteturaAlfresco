@@ -107,7 +107,7 @@ Além dos componentes mencionados na arquitetura em alto nível, há também o c
 
 Ambos o roteador de transformação e os diversos T-motores são executados separadamente em contêineres Docker escaláveis, sendo o roteador conectado ao repositório de Serviços de Conteúdo Alfresco, e os T-motores por meio do agente de mensagens ActiveMQ, que trata das requisições e respostas das trasformações. O agente de mensagens é assíncrono, fazendo de suas requisições e respostas também assíncronas.
 
-Para casos em que seja necessário trabalhar com mensagens síncronas, o repositório se comunica diretamente com os T-motores por HTTP, contando também com o mesmo *pipeline* em ecanismos de redundância que o roteador. O uso síncrono dos T-motores é chamado de transformações locais, sendo estas transformações as únicas disponíveis para a Edição da Comunidade do Alfresco, sendo usadas tanto para requisições síncronas quanto assíncronas.
+Para casos em que seja necessário trabalhar com mensagens síncronas, o repositório se comunica diretamente com os T-motores por HTTP, contando também com o mesmo *pipeline* em mecanismos de redundância que o roteador. O uso síncrono dos T-motores é chamado de transformações locais, sendo estas transformações as únicas disponíveis para a Edição da Comunidade do Alfresco, sendo usadas tanto para requisições síncronas quanto assíncronas.
 
 Arquivos transformados ou retornados ao repositório geralmente são armazenados no *Shared File Store*. A imagem a seguir apresenta os componentes do serviços de transformação e suas relações.
 
