@@ -198,16 +198,6 @@ Um repositório pode manter vários *Stores*, mas cada nó só pode estar locali
 
 Apenas o Content Store é implementado de modo a armazenar itens no disco.
 
-A imagem a seguir é uma representação criada pelo grupo, sendo um Diagrama de Máquina de Estados que ilustra o ciclo de vida de documentos no Alfresco:
-
-<div align="center">
-
-![image_info](./Assets/AlfrescoStateMachine.png)
-
-Diagrama de Máquina de Estados sobre o Ciclo de Vida de Documentos
-
-</div>
-
 #### 3.2.4. Arquitetura da plataforma
 
 Consiste no repositório, seus serviços relacionados e APIs. A plataforma contém pontos de extensão chave para a construção de extensões próprias. Os Serviços de Conteúdo Alfresco são modulares, implementando o framework Spring.
@@ -272,11 +262,30 @@ Já as APIs embutidas tradicionalmente tem sido usadas para definir customizaç�
 - **Person Service**, uma API para gerenciamento de usuários e grupos;
 - **Workflow Service**, usada para interagir com workflows dentro do Alfresco, sendo possível gerenciar tarefas e acompanhar processos.
 
-## 4. Análise Crítica e Sugestões de Melhoria
+### 3.4 Diagramas desenvolvidos
+Diagrama de Máquina de Estados que ilustra o ciclo de vida de documentos no Alfresco:
 
-## 5. Conclusão
+<div align="center">
 
-## 6. Referências
+![image_info](./Assets/AlfrescoStateMachine.png)
+
+Diagrama de Máquina de Estados sobre o Ciclo de Vida de Documentos
+
+</div>
+
+Diagrama de sequência sobre alguns fluxos de interações no sistema:
+
+<div align="center">
+
+![Diagrama de sequência básico](https://github.com/user-attachments/assets/b9fc7263-6377-4500-8893-8a9c011517f4)
+
+Diagrama de Sequência sobre autenticação, navegação, sincronização, busca e transformação de documentos.
+
+</div>
+
+## 4. Sugestões de Melhoria
+
+## 5. Referências
 
 [Alfresco Digital Workspace](https://docs.alfresco.com/digital-workspace/latest/)
 \
