@@ -330,51 +330,26 @@ RAG components
 
 </div>
 
-1. Extração
-Data Source
+#### 1. Extração
+<p>Data Source: Integra várias fontes de dados (documentos, imagens, vídeos) usando Amazon S3 ou outros serviços de armazenamento da AWS.</p>
+<p>Chunk Content: Utilize modelos de fundação do Bedrock para processar e dividir o conteúdo em chunks gerenciáveis.</p>
+<p>Create Embedding: Aproveite modelos de embedding para criar representações vetoriais do conteúdo.</p>
+<p>Vector DB: Armazene embeddings em um banco de dados vetorial compatível, como Amazon OpenSearch ou outras alternativas como Pinecone, Redis...</p>
 
-Bedrock: Integre várias fontes de dados (documentos, imagens, vídeos) usando Amazon S3 ou outros serviços de armazenamento da AWS.
+#### 2. Recuperação
+<p>Prompt: Recebe os comandos do usuário para obter uma resposta, a utilizanção de técnicas de engenharia de prompt é fundamental aqui, pois permite o ajuste dos modelos pré-treinados na personalização de saída conforme necessidade.</p>
+<p>Apply Input Moderator: Implemente moderação de entrada para garantir conteúdo apropriado - Como a configuração do Bedrock Guardrails.</p>
+<p>Create Embedding: Use o mesmo modelo de embedding para vetorizar o prompt do usuário.</p>
+<p>Match and Retrieve Chunks: Execute busca semântica no banco de dados vetorial para encontrar chunks relevantes.</p>
+<p>Top-k Chunks: Selecione os chunks mais relevantes para enriquecer o contexto da geração.</p>
 
-Chunk Content
-Bedrock: Utilize modelos de fundação do Bedrock para processar e dividir o conteúdo em chunks gerenciáveis.
+#### 3. Geração
+<p>Prompt: Construa um prompt enriquecido combinando a consulta original e os chunks recuperados.</p>
+<p>Completion API: Utilize modelos de linguagem para gerar respostas contextualizadas.</p>
+<p>Apply Output Moderator: Aplique moderação de saída para garantir respostas apropriadas e seguras.</p>
+<p>Response: Entregue a resposta final ao usuário através da interface do alfresco.</p>
 
-Create Embedding
-Bedrock: Aproveite modelos de embedding para criar representações vetoriais do conteúdo.
-
-Vector DB
-Bedrock: Armazene embeddings em um banco de dados vetorial compatível, como Amazon OpenSearch ou alternativas de terceiros.
-
-2. Recuperação
-Prompt
-
-Bedrock: Utilize a interface do Bedrock para receber prompts do usuário.
-
-Apply Input Moderator
-Bedrock: Implemente moderação de entrada usando modelos específicos do Bedrock para garantir conteúdo apropriado - Como Bedrock Guardrails.
-
-Create Embedding
-Bedrock: Use o mesmo modelo de embedding para vetorizar o prompt do usuário.
-
-Match and Retrieve Chunks
-Bedrock: Execute busca semântica no banco de dados vetorial para encontrar chunks relevantes.
-
-Top-k Chunks
-Bedrock: Selecione os chunks mais relevantes para enriquecer o contexto da geração.
-
-3. Geração
-Prompt
-
-Bedrock: Construa um prompt enriquecido combinando a consulta original e os chunks recuperados.
-
-Completion API
-Bedrock: Utilize modelos de linguagem para gerar respostas contextualizadas.
-
-Apply Output Moderator
-
-Bedrock: Aplique moderação de saída para garantir respostas apropriadas e seguras.
-
-Response
-Bedrock: Entregue a resposta final ao usuário através da interface do alfresco.
+Para cenários complexos existe uma técnica chamada “encadeamento de prompts”. Essa abordagem envolve dividir uma tarefa complexa em uma série de prompts menores e interconectados. O resultado de um prompt serve como entrada para o próximo, orientando o LLM por meio de um processo de raciocínio estruturado. Isso ajuda a obter respostas mais detalhadas e precisas.
 
 #### 4.2.4 Implementação Detalhada
 Arquitetura da Solução:
