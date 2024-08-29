@@ -435,7 +435,7 @@ A arquitetura serverless e o uso de serviços gerenciados da AWS permitem que a 
 \
 [Serviço de transformação Alfresco](https://docs.alfresco.com/transform-service/latest/)
 \
-[RAG components]([https://docs.alfresco.com/transform-service/latest/](https://medium.com/@rajib76.gcp/aws-bedrock-retrieval-agent-part-1-e6d23fbb9708))
+[RAG components](https://medium.com/@rajib76.gcp/aws-bedrock-retrieval-agent-part-1-e6d23fbb9708)
 
 
 
