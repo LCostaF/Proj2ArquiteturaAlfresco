@@ -198,6 +198,16 @@ Um repositório pode manter vários *Stores*, mas cada nó só pode estar locali
 
 Apenas o Content Store é implementado de modo a armazenar itens no disco.
 
+A imagem a seguir é uma representação criada pelo grupo, sendo um Diagrama de Máquina de Estados que ilustra o ciclo de vida de documentos no Alfresco:
+
+<div align="center">
+
+![image_info](./Assets/AlfrescoStateMachine.png)
+
+Diagrama de Máquina de Estados sobre o Ciclo de Vida de Documentos
+
+</div>
+
 #### 3.2.4. Arquitetura da plataforma
 
 Consiste no repositório, seus serviços relacionados e APIs. A plataforma contém pontos de extensão chave para a construção de extensões próprias. Os Serviços de Conteúdo Alfresco são modulares, implementando o framework Spring.
