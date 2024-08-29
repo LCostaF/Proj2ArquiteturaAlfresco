@@ -285,6 +285,97 @@ Diagrama de Sequência sobre autenticação, navegação, sincronização, busca
 </div>
 
 ## 4. Sugestões de Melhoria
+### 4.1 Criação de um chatbot com genIA para suporte
+- Atendimento 24/7;
+- Redução da carga de trabalho da equipe de suporte;
+- Acesso rápido e fácil à informação;
+- Personalização da experiência;
+- Integração com diversas fontes de informação;
+- Capacidade de gerar conteúdo;
+- Análise de dados e insights;
+- Escalabilidade;
+- Multilinguismo.
+
+Além dos beneficios citados acima a integração do ChatBot com GenAI utilizando RAG - Retrieval Augment Generation para otimização da busca - O chatbot pode utilizar a capacidade de processamento de linguagem natural da GenAI para realizar buscas mais precisas e relevantes dentro da base de conhecimento do Alfresco.
+
+As Bases de Conhecimento para Amazon Bedrock permitem integrar informações proprietárias nos aplicativos de IA generativa. Usando a técnica Retrieval Augment Generation (RAG), uma base de conhecimento pesquisa seus dados para encontrar as informações mais úteis e, em seguida, as usa para responder a perguntas em linguagem natural, ao utilizar API RetrieveAndGenerate ou API Retrieve.
+
+API RetrieveAndGenerate: Combina dois passos em uma única chamada:
+- Recuperação (Retrieve): Busca informações relevantes da base de conhecimento com base na pergunta ou contexto fornecido.
+- Geração (Generate): Usa essas informações recuperadas junto com a pergunta original para gerar uma resposta.
+
+API Retrieve: Realiza apenas o passo de recuperação:
+- Consulta a base de conhecimento e retorna as informações mais relevantes para a pergunta ou contexto fornecido.
+- Não gera uma resposta, apenas fornece as informações recuperadas.
+Isso pode ser útil para:
+- Ter mais controle sobre como as informações são usadas.
+- Realizar processamento adicional nos dados recuperados antes de gerar uma resposta.
+- Mostrar ao usuário as fontes de informação exatas que estão sendo usadas.
+
+### 4.2 Implementação de RAG (Retrieval Augmented Generation) com AWS Bedrock
+O diagrama apresentado ilustra um fluxo típico de RAG, que pode ser implementado utilizando os serviços do AWS Bedrock.
+<div align="center">
+
+![image](https://github.com/user-attachments/assets/e1e0f675-d8fa-49c6-87dd-3a77a5960da3)
+
+RAG components
+
+</div>
+
+1. Extração
+Data Source
+
+Bedrock: Integre várias fontes de dados (documentos, imagens, vídeos) usando Amazon S3 ou outros serviços de armazenamento da AWS.
+
+Chunk Content
+Bedrock: Utilize modelos de fundação do Bedrock para processar e dividir o conteúdo em chunks gerenciáveis.
+
+Create Embedding
+Bedrock: Aproveite modelos de embedding para criar representações vetoriais do conteúdo.
+
+Vector DB
+Bedrock: Armazene embeddings em um banco de dados vetorial compatível, como Amazon OpenSearch ou alternativas de terceiros.
+
+2. Recuperação
+Prompt
+
+Bedrock: Utilize a interface do Bedrock para receber prompts do usuário.
+
+Apply Input Moderator
+Bedrock: Implemente moderação de entrada usando modelos específicos do Bedrock para garantir conteúdo apropriado - Como Bedrock Guardrails.
+
+Create Embedding
+Bedrock: Use o mesmo modelo de embedding para vetorizar o prompt do usuário.
+
+Match and Retrieve Chunks
+Bedrock: Execute busca semântica no banco de dados vetorial para encontrar chunks relevantes.
+
+Top-k Chunks
+Bedrock: Selecione os chunks mais relevantes para enriquecer o contexto da geração.
+
+3. Geração
+Prompt
+
+Bedrock: Construa um prompt enriquecido combinando a consulta original e os chunks recuperados.
+
+Completion API
+Bedrock: Utilize modelos de linguagem para gerar respostas contextualizadas.
+
+Apply Output Moderator
+
+Bedrock: Aplique moderação de saída para garantir respostas apropriadas e seguras.
+
+Response
+Bedrock: Entregue a resposta final ao usuário através da interface escolhida.
+
+Implementação com AWS Bedrock
+
+Preparação de Dados: Use Amazon S3 para armazenar seus dados brutos.
+Processamento: Utilize AWS Lambda com modelos do Bedrock para chunking e embedding.
+Armazenamento de Vetores: Implemente Amazon OpenSearch para armazenar e buscar embeddings.
+Orquestração: Use AWS Step Functions para gerenciar o fluxo de RAG.
+Interface: Crie uma API com Amazon API Gateway para interagir com o sistema.
+Geração: Modelos de linguagem do Bedrock para criar respostas contextualizadas.
 
 ## 5. Referências
 
@@ -311,6 +402,9 @@ Diagrama de Sequência sobre autenticação, navegação, sincronização, busca
 [Serviço de sincronização Alfresco](https://docs.alfresco.com/sync-service/latest/admin/)
 \
 [Serviço de transformação Alfresco](https://docs.alfresco.com/transform-service/latest/)
+\
+[RAG components]([https://docs.alfresco.com/transform-service/latest/](https://medium.com/@rajib76.gcp/aws-bedrock-retrieval-agent-part-1-e6d23fbb9708))
+
 
 
 
