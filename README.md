@@ -263,6 +263,7 @@ Já as APIs embutidas tradicionalmente tem sido usadas para definir customizaç�
 - **Workflow Service**, usada para interagir com workflows dentro do Alfresco, sendo possível gerenciar tarefas e acompanhar processos.
 
 ### 3.4 Diagramas desenvolvidos
+A seguir estão alguns diagramas UML desenvolvidos pelo grupo sobre alguns processos do sistema Alfresco.
 Diagrama de Máquina de Estados que ilustra o ciclo de vida de documentos no Alfresco:
 
 <div align="center">
