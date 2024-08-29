@@ -285,16 +285,42 @@ Diagrama de Sequência sobre autenticação, navegação, sincronização, busca
 </div>
 
 ## 4. Sugestões de Melhoria
-### 4.1 Criação de um chatbot com genIA para suporte
-- Atendimento 24/7;
-- Redução da carga de trabalho da equipe de suporte;
-- Acesso rápido e fácil à informação;
-- Personalização da experiência;
-- Integração com diversas fontes de informação;
-- Capacidade de gerar conteúdo;
-- Análise de dados e insights;
-- Escalabilidade;
-- Multilinguismo.
+### 4.1 Introdução
+O Alfresco é uma plataforma de ECM que tem sido amplamente adotada em ambientes de nuvem devido à sua flexibilidade e escalabilidade. Em configurações típicas de nuvem, o Alfresco é implementado como uma série de serviços distribuídos, aproveitando as vantagens da infraestrutura elástica oferecida por provedores como AWS, Azure ou Google Cloud.Como por exemplo, a AWS que fornece uma implementação de referência para o Alfresco que demonstra como aproveitar ao máximo os serviços de nuvem para criar um ambiente de ECM altamente disponível e seguro.
+<div align="center">
+  
+![image](https://github.com/user-attachments/assets/b0f36dc5-d491-4b76-9b34-a037146df7be)
+
+implementação do alfresco na aws
+
+</div>
+
+
+### 4.2 Proposta de Melhoria: Integração de Chatbot com IA Generativa e RAG
+#### 4.2.1 Visão Geral
+Nossa proposta de melhoria visa aprimorar significativamente a acessibilidade e utilidade do conteúdo armazenado no Alfresco através da integração de um chatbot alimentado por Inteligência Artificial Generativa (GenAI) e tecnologia de Recuperação Aumentada por Geração (RAG). Esta solução não apenas facilitará o acesso à informação, mas também transformará a maneira como os usuários interagem com os documentos e dados armazenados no sistema.
+
+<div align="center">
+  
+![melhoria (1)](https://github.com/user-attachments/assets/fb29de85-8be2-4c3d-bf6f-289ba292ab18)
+
+
+arquitetura da melhoria proposta
+
+</div>
+
+#### 4.2.2 Benefícios da Solução Proposta
+- Atendimento 24/7: O chatbot estará disponível constantemente para atender às necessidades dos usuários;
+- Redução da carga de trabalho da equipe de suporte: Questões comuns e buscas de informações serão tratadas automaticamente;
+- Acesso rápido e fácil à informação: Os usuários poderão obter respostas imediatas baseadas no conteúdo do Alfresco;
+- Personalização da experiência: O chatbot pode adaptar suas respostas com base no histórico e preferências do usuário;
+- Integração com diversas fontes de informação: Além do conteúdo do Alfresco, o chatbot pode acessar outras bases de conhecimento conforme necessário;
+- Capacidade de gerar conteúdo: O chatbot pode criar resumos, relatórios ou outros documentos baseados nas informações existentes;
+- Análise de dados e insights: Pode oferecer análises e insights baseados nos padrões de uso e conteúdo do repositório;
+- Escalabilidade: A solução pode crescer facilmente para atender a um número crescente de usuários e volume de conteúdo;
+- Multilinguismo: Suporte a múltiplos idiomas para organizações globais.
+
+- ---
 
 Além dos beneficios citados acima a integração do ChatBot com GenAI utilizando RAG - Retrieval Augment Generation para otimização da busca - O chatbot pode utilizar a capacidade de processamento de linguagem natural da GenAI para realizar buscas mais precisas e relevantes dentro da base de conhecimento do Alfresco.
 
